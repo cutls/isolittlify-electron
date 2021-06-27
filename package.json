@@ -1,0 +1,60 @@
+{
+    "name": "isolittlify-electron",
+    "version": "1.0.0",
+    "main": "main.js",
+    "author": "cutls",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build:js": "node build.js",
+      "build": "npx electron-builder",
+      "build:all": "npx electron-builder --win --linux",
+      "build:win": "npx electron-builder --win",
+      "build:pwa": "node view/make/make.js --automatic --pwa"
+    },
+    "license": "MIT",
+    "dependencies": {
+    },
+    "devDependencies": {
+      "electron": "^8.0.0",
+      "electron-builder": "^22.4.1"
+    },
+    "build": {
+      "productName": "Isolittlify Viewer",
+      "directories": {
+        "output": "../build"
+      },
+      "win": {
+        "icon": "build/thedesk.ico",
+        "target": [
+          "nsis",
+          "portable",
+          "appx"
+        ]
+      },
+      "nsis": {
+        "oneClick": false,
+        "allowToChangeInstallationDirectory": true,
+        "artifactName": "TheDesk-setup.${ext}"
+      },
+      "linux": {
+        "icon": "build/icons",
+        "target": [
+          "zip",
+          "snap",
+          "deb"
+        ],
+        "category": "Network"
+      },
+      "mac": {
+        "target": [
+          "dmg",
+          "zip"
+        ]
+      },
+      "electronDownload": {
+        "version": "6.0.0"
+      },
+      "electronVersion": "6.0.0"
+    }
+  }
+  
